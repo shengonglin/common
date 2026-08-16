@@ -1,6 +1,6 @@
 #!/bin/bash
 # https://github.com/281677160/build-actions  
-# common Module by 28677160
+# common Module by 281677160
 # matrix.target=${FOLDER_NAME}
 
 export SYNCHRONISE=""
@@ -94,7 +94,7 @@ Diy_three() {
     if [[ "$SYNCHRONISE" == "NO" ]]; then
         if [[ "${BENDI_VERSION}" == "1" ]]; then
             shangyou=$(mktemp -d)
-            if git clone --single-branch --depth=1 --branch=main https://github.com/281677160/build-actions "${shangyou}"; then
+            if git clone --single-branch --depth=1 --branch=main https://github.com/shengonglin/build-actions "${shangyou}"; then
                 if [[ -d "${OPERATES_PATH}" ]]; then
                     mv "${OPERATES_PATH}" backups
                     cp -Rf "$shangyou/build" "${OPERATES_PATH}"
@@ -143,8 +143,8 @@ Diy_three() {
         else
             rm -rf repogx shangyou
             git clone --depth=1 -b "${GIT_REFNAME}" https://user:${REPO_TOKEN}@github.com/${GIT_REPOSITORY}.git repogx
-            if ! git clone -q --single-branch --depth=1 --branch=main https://github.com/281677160/build-actions shangyou; then
-              git clone --depth=1 https://github.com/281677160/build-actions shangyou
+            if ! git clone -q --single-branch --depth=1 --branch=main https://github.com/shengonglin/build-actions shangyou; then
+              git clone --depth=1 https://github.com/shengonglin/build-actions shangyou
             fi
             if [[ ! -d "repogx" ]]; then
               TIME r "同步上游仓库失败，请注意密匙制作时候勾选是否正确"
@@ -169,7 +169,7 @@ Diy_three() {
             mkdir -p repogx/.github/workflows
             cp -Rf shangyou/* repogx
             cp -Rf shangyou/.github/workflows/* repogx/.github/workflows
-            if [[ "$GIT_REPOSITORY" != "281677160/build-actions" ]]; then
+            if [[ "$GIT_REPOSITORY" != "shengonglin/build-actions" ]]; then
                 cp -Rf backups repogx/backups
             fi
 
