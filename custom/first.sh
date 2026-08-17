@@ -1,6 +1,6 @@
 #!/bin/bash
-# https://github.com/281677160/build-actions  
-# common Module by 281677160
+# https://github.com/shengonglin/build-actions  
+# common Module by shengonglin
 # matrix.target=${FOLDER_NAME}
 
 export SYNCHRONISE=""

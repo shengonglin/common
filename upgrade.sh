@@ -6,7 +6,7 @@ AUTOUPDATE_VERSION=8.0
 
 function Diy_Part1() {
 	find . -type d -name 'luci-app-autoupdate' | xargs -i rm -rf {}
-        if git clone -q --single-branch --depth=1 --branch=main https://github.com/281677160/luci-app-autoupdate $HOME_PATH/package/luci-app-autoupdate; then
+        if git clone -q --single-branch --depth=1 --branch=main https://github.com/shengonglin/luci-app-autoupdate $HOME_PATH/package/luci-app-autoupdate; then
         	if ! grep -q "luci-app-autoupdate" "${HOME_PATH}/include/target.mk"; then
 			sed -i 's?DEFAULT_PACKAGES:=?DEFAULT_PACKAGES:=luci-app-autoupdate luci-app-ttyd ?g' ${HOME_PATH}/include/target.mk
 		fi
@@ -20,7 +20,7 @@ function Diy_Part1() {
 function Diy_Part2() {
 	export UPDATE_TAG="Update-${TARGET_BOARD}"
 	export FILESETC_UPDATE="${HOME_PATH}/package/base-files/files/etc/openwrt_update"
-	export GITHUB_PROXY="https://ghfast.top"
+	export GITHUB_PROXY="https://fd.qfan.top"
 	export RELEASE_DOWNLOAD="\$GITHUB_LINK/releases/download/${UPDATE_TAG}"
 	export GITHUB_RELEASE="${GITHUB_LINK}/releases/tag/${UPDATE_TAG}"
         if [[ ! -f "$LINSHI_COMMON/autoupdate/replace" ]]; then
