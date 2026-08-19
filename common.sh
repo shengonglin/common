@@ -188,12 +188,12 @@ echo "src-git dstheme https://github.com/shengonglin/openwrt-package.git;$THEME_
 # 新增自定义源
 echo "src-git ddnsgo https://github.com/sirpdboy/luci-app-ddns-go.git;main" >> "${HOME_PATH}/feeds.conf.default"
 echo "src-git nikki https://github.com/nikkinikki-org/OpenWrt-nikki.git;main" >> "${HOME_PATH}/feeds.conf.default"
-git clone --depth 1 https://github.com/Openwrt-Passwall/openwrt-passwall.git feeds/passwall
-git clone --depth 1 https://github.com/Openwrt-Passwall/openwrt-passwall2.git feeds/passwall2
-git clone --depth 1 https://github.com/Openwrt-Passwall/openwrt-passwall-packages.git feeds/passwall_packages
-echo "src-link passwall ${HOME_PATH}/feeds/passwall" >> "${HOME_PATH}/feeds.conf.default"
-echo "src-link passwall2 ${HOME_PATH}/feeds/passwall2" >> "${HOME_PATH}/feeds.conf.default"
-echo "src-link passwall_packages ${HOME_PATH}/feeds/passwall_packages" >> "${HOME_PATH}/feeds.conf.default"
+git clone --depth 1 https://github.com/Openwrt-Passwall/openwrt-passwall.git package/passwall
+git clone --depth 1 https://github.com/Openwrt-Passwall/openwrt-passwall2.git package/passwall2
+git clone --depth 1 https://github.com/Openwrt-Passwall/openwrt-passwall-packages.git package/passwall_packages
+echo "src-link passwall ${HOME_PATH}/package/passwall" >> "${HOME_PATH}/feeds.conf.default"
+echo "src-link passwall2 ${HOME_PATH}/package/passwall2" >> "${HOME_PATH}/feeds.conf.default"
+echo "src-link passwall_packages ${HOME_PATH}/package/passwall_packages" >> "${HOME_PATH}/feeds.conf.default"
 
 # 增加中文语言包
 if [[ -z "$(find "$HOME_PATH/package" -type d -name "default-settings" -print)" ]] && [[ "${THEME_BRANCH}" == "Theme2" ]]; then
