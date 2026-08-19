@@ -181,11 +181,6 @@ else
 fi
 
 #echo "src-git danshui https://github.com/shengonglin/openwrt-package.git;$SOURCE" >> "${HOME_PATH}/feeds.conf.default"
-
-# ======================= 修改点开始 =======================
-# 强制先补一个空行，防止 feeds.conf.default 最后一行没换行导致粘在一起
-echo "" >> "${HOME_PATH}/feeds.conf.default"
-
 echo "src-git dstheme https://github.com/shengonglin/openwrt-package.git;$THEME_BRANCH" >> "${HOME_PATH}/feeds.conf.default"
 [[ "${OpenClash_branch}" == "1" ]] && echo "src-git OpenClash https://github.com/vernesong/OpenClash.git;master" >> "${HOME_PATH}/feeds.conf.default"
 [[ "${OpenClash_branch}" == "2" ]] && echo "src-git OpenClash https://github.com/vernesong/OpenClash.git;dev" >> "${HOME_PATH}/feeds.conf.default"
@@ -195,8 +190,7 @@ echo "src-git ddnsgo https://github.com/sirpdboy/luci-app-ddns-go.git;main" >> "
 echo "src-git nikki https://github.com/nikkinikki-org/OpenWrt-nikki.git;main" >> "${HOME_PATH}/feeds.conf.default"
 echo "src-git passwall https://github.com/Openwrt-Passwall/openwrt-passwall.git;main" >> "${HOME_PATH}/feeds.conf.default"
 echo "src-git passwall2 https://github.com/Openwrt-Passwall/openwrt-passwall2.git;main" >> "${HOME_PATH}/feeds.conf.default"
-echo "src-git passwall-packages https://github.com/Openwrt-Passwall/openwrt-passwall-packages.git;main" >> "${HOME_PATH}/feeds.conf.default"
-# ======================= 修改点结束 =======================
+echo "src-git passwall_packages https://github.com/Openwrt-Passwall/openwrt-passwall-packages.git;main" >> "${HOME_PATH}/feeds.conf.default"
 
 # 增加中文语言包
 if [[ -z "$(find "$HOME_PATH/package" -type d -name "default-settings" -print)" ]] && [[ "${THEME_BRANCH}" == "Theme2" ]]; then
